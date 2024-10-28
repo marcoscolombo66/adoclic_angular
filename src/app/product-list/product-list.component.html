@@ -1,0 +1,70 @@
+<div class="header">
+  <h4>Productos</h4>
+
+<div class="flex items-center justify-center mt-4">
+  <button mat-button (click)="logout()" class="flex items-center bg-red-600 text-white hover:bg-red-700">
+    <mat-icon class="mr-2">logout</mat-icon> 
+    Salir
+  </button>
+</div>
+
+  
+</div>
+
+<div class="filters">
+  <mat-form-field >
+    <mat-label>Categoría</mat-label>
+    <mat-select [(ngModel)]="selectedCategory" (selectionChange)="applyCategoryFilter()">
+      <mat-option value="">Todos</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Items por página</mat-label>
+    <mat-select [(ngModel)]="pageSize" (selectionChange)="onPageSizeChange($event.value)">
+      <mat-option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+    <td mat-cell *matCellDef="let product">{{ product.id }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+    <td mat-cell *matCellDef="let product">{{ product.title }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Categoría</th>
+    <td mat-cell *matCellDef="let product">{{ product.category }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+    <td mat-cell *matCellDef="let product">{{ product.price | currency }}</td>
+  </ng-container>
+
+  
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let product">
+      <button mat-icon-button (click)="openProductDetails(product)">
+        <mat-icon>info</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" [pageSize]="pageSize" showFirstLastButtons></mat-paginator>

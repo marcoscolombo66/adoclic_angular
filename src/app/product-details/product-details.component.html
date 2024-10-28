@@ -1,0 +1,29 @@
+<div class="relative p-6 bg-white rounded-lg shadow-md max-w-sm md:max-w-lg mx-auto overflow-hidden">
+    
+    <div class="flex items-center justify-between mb-4">
+      <label class="text-base font-medium text-gray-700">{{ data.title }}</label>
+      <button mat-icon-button mat-dialog-close class="text-gray-500 hover:text-gray-700" aria-label="Close dialog">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    
+    <div class="mb-4">
+      <img 
+        src="{{ data.image }}" 
+        alt="{{ data.title }}" 
+        class="w-full h-auto object-cover rounded-lg"
+        style="max-height: 150px; object-fit: cover;"
+      >
+      <p class="text-gray-700 text-center mt-2">{{ data.category }}</p>
+    </div>
+        
+    <p class="text-gray-700 text-justify">{{ data.description }}</p>
+
+    <div class="text-gray-700 flex justify-between">
+        <label class="text-start">Price</label> 
+        <label class="text-end">{{ data.price | currency }}</label>
+    </div>
+
+  </div>
+  
