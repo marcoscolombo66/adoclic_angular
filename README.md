@@ -1,28 +1,66 @@
-# Adoclic
+# Documentación para Ejecución de Pruebas Unitarias en Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+## Introducción
+Este documento describe cómo ejecutar pruebas unitarias en la aplicación Angular y cómo interpretar los resultados obtenidos. Las pruebas se han implementado utilizando **Jasmine** y **Karma**, que son herramientas estándar para pruebas en aplicaciones Angular.
 
-## Development server
+## Ejecución de Pruebas Unitarias
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Prerequisitos
+Antes de ejecutar las pruebas, asegúrate de que tu entorno de desarrollo esté correctamente configurado:
 
-## Code scaffolding
+- **Node.js**: Debes tener instalado Node.js en tu máquina. Puedes descargarlo desde [nodejs.org](https://nodejs.org).
+- **Angular CLI**: Asegúrate de tener Angular CLI instalado. Si no lo tienes, puedes instalarlo con el siguiente comando:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ```bash
+    npm install -g @angular/cli
+    ```
 
-## Build
+### Comandos para Ejecutar Pruebas
+Para ejecutar las pruebas unitarias, abre la terminal en la carpeta raíz del proyecto y utiliza los siguientes comandos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Ejecutar todas las pruebas**:
 
-## Running unit tests
+    ```bash
+    ng test
+    ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Se abrirá un navegador y ejecutará todas las pruebas en un entorno de desarrollo.
 
-## Running end-to-end tests
+- **Ejecutar pruebas en modo "watch"**:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    ng test --watch
+    ```
 
-## Further help
+    Se mantiene el proceso activo y ejecuta las pruebas automáticamente cada vez que se realice un cambio en el código.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-"# adoclic_angular" 
+## Resultados de las Pruebas
+Una vez que se ejecuten las pruebas, se verá salida en la terminal y en el navegador con los siguientes elementos:
+
+- **Número de pruebas ejecutadas**: Muestra cuántas pruebas se han ejecutado en total.
+- **Pruebas pasadas**: Se indicará cuántas pruebas se han pasado exitosamente.
+- **Pruebas fallidas**: Si hay pruebas que no han pasado, se mostrarán en rojo con detalles sobre el error.
+- **Detalles de errores**: Se proporcionarán mensajes de error que explican por qué la prueba falló, incluyendo la línea de código donde ocurrió el error y la razón del fallo.
+
+## Interpretación de Resultados
+
+### Pruebas Pasadas
+Si todas las pruebas pasan, verás un mensaje indicando que todas las pruebas se han completado exitosamente. Esto significa que tu componente está funcionando como se esperaba.
+
+### Pruebas Fallidas
+Si alguna prueba falla, revisa el mensaje de error proporcionado. Los errores suelen incluir información como:
+
+- El nombre de la prueba que falló.
+- La descripción del fallo.
+- La línea de código donde ocurrió el error.
+
+Utiliza esta información para depurar el código y corregir el problema. Una vez que hayas realizado las correcciones, vuelve a ejecutar las pruebas para verificar que ahora todas pasen.
+
+### Cobertura de Pruebas
+Puedes verificar la cobertura de pruebas utilizando el siguiente comando:
+
+```bash
+ng test --code-coverage
+```
+
+# RESULTADOS PRUEBA:
