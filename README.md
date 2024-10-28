@@ -64,3 +64,13 @@ ng test --code-coverage
 ```
 
 # RESULTADOS PRUEBA:
+![Test](test2.png)
+![Test](test1.png)
+![Test](test3.png)
+
+### Para ver el informe completo hay que abrir el index que esta dentro de la carpeta coverage:
+```bash
+coverage\adoclic\index.html
+```
+
+
